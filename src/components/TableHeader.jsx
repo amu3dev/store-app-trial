@@ -6,7 +6,7 @@ import {
 } from "react-icons/fc";
 
 const TableHeader = (props) => {
-  const { onSort, headers, sortColumn } = props;
+  const { onSort, headers, sortedColumn } = props;
   return (
     <thead>
       <tr>
@@ -46,14 +46,14 @@ const TableHeader = (props) => {
             onClick={() => onSort(header.path)}>
             {header.name}
             {header.type === "text" ? (
-              header.name === "" ? null : header.path === sortColumn.path &&
-                sortColumn.order === "asc" ? (
+              header.name === "" ? null : header.path === sortedColumn.path &&
+                sortedColumn.order === "asc" ? (
                 <FcAlphabeticalSortingAz />
               ) : (
                 <FcAlphabeticalSortingZa />
               )
-            ) : header.name === "" ? null : header.path === sortColumn.path &&
-              sortColumn.order === "asc" ? (
+            ) : header.name === "" ? null : header.path === sortedColumn.path &&
+              sortedColumn.order === "asc" ? (
               <FcNumericalSorting12 />
             ) : (
               <FcNumericalSorting21 />

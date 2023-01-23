@@ -17,7 +17,7 @@ class Board extends Component {
     itemsPerPage: 4,
     currentPage: 1,
     currentGenre: "All Genres",
-    sortColumn: { path: "title", order: "asc" },
+    sortedColumn: { path: "title", order: "asc" },
   };
 
   componentDidMount() {
@@ -35,8 +35,8 @@ class Board extends Component {
 
     const orderedMovies = _.orderBy(
       movies,
-      [this.state.sortColumn.path],
-      [this.state.sortColumn.order]
+      [this.state.sortedColumn.path],
+      [this.state.sortedColumn.order]
     );
     const moviesPaginated = paginate(
       orderedMovies,
@@ -66,7 +66,7 @@ class Board extends Component {
                 <TableHeader
                   onSort={this.handelSort}
                   headers={this.headers}
-                  sortColumn={this.state.sortColumn}
+                  sortedColumn={this.state.sortedColumn}
                 />
                 <TableBody
                   currentGenre={currentGenre}
@@ -137,16 +137,16 @@ class Board extends Component {
     const orderedMovies = _.orderBy(
       movies,
       [path],
-      [this.state.sortColumn.order]
+      [this.state.sortedColumn.order]
     );
-    const sortColumn = { ...this.state.sortColumn };
-    if (sortColumn.path === path)
-      sortColumn.order = sortColumn.order === "asc" ? "desc" : "asc";
+    const sortedColumn = { ...this.state.sortedColumn };
+    if (sortedColumn.path === path)
+      sortedColumn.order = sortedColumn.order === "asc" ? "desc" : "asc";
     else {
-      sortColumn.path = path;
-      sortColumn.order = "asc";
+      sortedColumn.path = path;
+      sortedColumn.order = "asc";
     }
-    this.setState({ movies: orderedMovies, sortColumn });
+    this.setState({ movies: orderedMovies, sortedColumn });
   };
 }
 
