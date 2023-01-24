@@ -1,5 +1,4 @@
-const ListGroup = (props) => {
-  const { items, onListGroupItemSelected, currentGenre } = props;
+const ListGroup = ({ items, onListGroupItemSelected, currentGenre }) => {
   return (
     <div className="list-group">
       {items.map((item) => (

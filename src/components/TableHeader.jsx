@@ -5,8 +5,7 @@ import {
   FcNumericalSorting21,
 } from "react-icons/fc";
 
-const TableHeader = (props) => {
-  const { onSort, headers, sortedColumn } = props;
+const TableHeader = ({ onSort, headers, sortedColumn }) => {
   return (
     <thead>
       <tr>

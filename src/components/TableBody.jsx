@@ -1,7 +1,6 @@
 import Like from "./Like";
 
-const TableBody = (props) => {
-  const { items, onLike, onDelete } = props;
+const TableBody = ({ items, onLike, onDelete }) => {
   return (
     <tbody>
       {items.map((item) => (

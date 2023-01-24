@@ -1,7 +1,6 @@
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
-const Like = (prop) => {
-  const { liked, onLike } = prop;
+const Like = ({ liked, onLike }) => {
   return liked ? (
     <h6 onClick={onLike}>
       <FaHeart />

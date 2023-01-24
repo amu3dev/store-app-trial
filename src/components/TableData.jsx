@@ -1,5 +1,4 @@
-const TableData = (props) => {
-  const { itemsCount, currentGenre } = props;
+const TableData = ({ itemsCount, currentGenre }) => {
   return (
     <div>
       {itemsCount > 0 ? (

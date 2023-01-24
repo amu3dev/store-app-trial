@@ -1,5 +1,4 @@
-const NavBar = (props) => {
-  const { onCountersTotal, onCountersItemsTotal } = props;
+const NavBar = ({ onCountersTotal, onCountersItemsTotal }) => {
   return (
     <div className="container">
       <nav className="navbar bg-light">
