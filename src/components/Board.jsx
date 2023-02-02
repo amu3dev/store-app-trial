@@ -8,7 +8,6 @@ import { getGenres } from "../services/fakeGenreService";
 import _ from "lodash";
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
-import TableNavbar from "./TableNavbar";
 
 class Board extends Component {
   state = {
@@ -48,7 +47,6 @@ class Board extends Component {
 
     return (
       <div>
-        <TableNavbar />
         <table className="table">
           <tbody className="border border-light">
             <tr>
@@ -109,6 +107,7 @@ class Board extends Component {
     { name: "", path: "liked" },
     { name: "", path: "delete" },
   ];
+
 
   handelDelete = (movie) => {
     this.setState({
