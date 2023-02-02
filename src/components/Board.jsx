@@ -8,6 +8,7 @@ import { getGenres } from "../services/fakeGenreService";
 import _ from "lodash";
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
+import TableNavbar from "./TableNavbar";
 
 class Board extends Component {
   state = {
@@ -46,55 +47,58 @@ class Board extends Component {
     );
 
     return (
-      <table className="table">
-        <tbody className="border border-light">
-          <tr>
-            <td>
-              <ListGroup
-                items={generes}
-                onListGroupItemSelected={this.handelListGroupItemSelected}
-                currentGenre={currentGenre}
-                itemsListCount={moviesPaginated[1].length}
-              />
-            </td>
-            <td>
-              <TableData
-                currentGenre={currentGenre}
-                itemsCount={moviesPaginated[1].length}
-              />
-              <table className="table">
-                <TableHeader
-                  onSort={this.handelSort}
-                  headers={this.headers}
-                  sortedColumn={this.state.sortedColumn}
-                />
-                <TableBody
-                  currentGenre={currentGenre}
-                  items={moviesPaginated[0]}
-                  itemsCount={moviesPaginated[1].length}
-                  onDelete={this.handelDelete}
-                  onLike={this.handelLike}
+      <div>
+        <TableNavbar />
+        <table className="table">
+          <tbody className="border border-light">
+            <tr>
+              <td>
+                <ListGroup
+                  items={generes}
                   onListGroupItemSelected={this.handelListGroupItemSelected}
-                  generes={generes}
+                  currentGenre={currentGenre}
+                  itemsListCount={moviesPaginated[1].length}
                 />
-              </table>
-            </td>
-          </tr>
-        </tbody>
-        <tfoot className="border-0">
-          <tr>
-            <td className="invisible"></td>
-            <td>
-              <Pagination
-                itemsCount={moviesPaginated[1].length}
-                itemsPerPage={itemsPerPage}
-                onPageChange={this.handelPageChange}
-                currentPage={currentPage}
-              />
-            </td>
-          </tr>
-        </tfoot>
-      </table>
+              </td>
+              <td>
+                <TableData
+                  currentGenre={currentGenre}
+                  itemsCount={moviesPaginated[1].length}
+                />
+                <table className="table">
+                  <TableHeader
+                    onSort={this.handelSort}
+                    headers={this.headers}
+                    sortedColumn={this.state.sortedColumn}
+                  />
+                  <TableBody
+                    currentGenre={currentGenre}
+                    items={moviesPaginated[0]}
+                    itemsCount={moviesPaginated[1].length}
+                    onDelete={this.handelDelete}
+                    onLike={this.handelLike}
+                    onListGroupItemSelected={this.handelListGroupItemSelected}
+                    generes={generes}
+                  />
+                </table>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot className="border-0">
+            <tr>
+              <td className="invisible"></td>
+              <td>
+                <Pagination
+                  itemsCount={moviesPaginated[1].length}
+                  itemsPerPage={itemsPerPage}
+                  onPageChange={this.handelPageChange}
+                  currentPage={currentPage}
+                />
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     );
   }
   headers = [
