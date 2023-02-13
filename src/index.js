@@ -1,21 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import "./index.css";
 import TableNavbar from "./components/TableNavbar";
 import Customers from "./components/Customers";
 import Rentals from "./components/Rentals";
+import Board from "./components/Board";
+import MoviesDetails from "./components/MoviesDetails";
+import NotFound from "./components/NotFound";
+
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
-import "./index.css";
-
 import reportWebVitals from "./reportWebVitals";
-// import App from "./components/App";
-import Board from "./components/Board";
-import NotFound from "./components/NotFound";
-import MoviesDetails from "./components/MoviesDetails";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
