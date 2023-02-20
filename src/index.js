@@ -7,6 +7,7 @@ import TableNavbar from "./components/TableNavbar";
 import Customers from "./components/Customers";
 import Rentals from "./components/Rentals";
 import Board from "./components/Board";
+import LoginForm from "./components/LoginForm";
 import MoviesDetails from "./components/MoviesDetails";
 import NotFound from "./components/NotFound";
 
@@ -24,6 +25,7 @@ root.render(
       <TableNavbar />
       <Routes>
         <Route path="/" element={<Board />} />
+        <Route path="login" element={<LoginForm />} />
         <Route path="/movies/:id" element={<MoviesDetails />} />
 
         <Route path="/movies" element={<Board />} />
