@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Joi, validate } from "joi-browser";
+//import { Joi, validate } from "joi-browser";
 
 const LoginForm = () => {
-  // const [enteredEmail, setEnteredEmail] = useState("");
-  // const [enteredPassword, setEnteredPassword] = useState("");
-  const [data, setData] = useState({ enteredEmail: "", enteredPassword: "" });
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
+  //const [data, setData] = useState({ enteredEmail: "", enteredPassword: "" });
 
   // const [errors, setErrors] = useState({});
   // const schema = {
@@ -14,31 +14,26 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    //console.log("Submitted");
+    // sent as one object
+    const data = {
+      email: enteredEmail,
+      password: enteredPassword,
+    };
     console.log("data Submitted", data);
-
-    // const data = {
-    //   enteredEmail: "",
-    //   enteredPassword: "",
-    // };
-    // reset the form
-    // setEnteredEmail("");
-    // setEnteredPassword("");
+    // Resetting the form
+    setEnteredEmail("");
+    setEnteredPassword("");
   };
-  // const handleEmailChange = (e) => {
-  //   console.log(e.target.value);
-  //   setEnteredEmail(e.target.value);
-  // };
 
   const handleEmailChange = (e) => {
     console.log(e.target.value);
-    setData({ ...data, enteredEmail: e.target.value });
+    setEnteredEmail(e.target.value);
+    // setData({ ...data, enteredEmail: e.target.value });
   };
   const handlePasswordChange = (e) => {
     console.log(e.target.value);
-    //setEnteredPassword(e.target.value);
-    setData({ ...data, enteredPassword: e.target.value });
+    setEnteredPassword(e.target.value);
+    // setData({ ...data, enteredPassword: e.target.value });
   };
 
   return (
@@ -56,7 +51,7 @@ const LoginForm = () => {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
-            value={data.enteredEmail}
+            value={enteredEmail}
             onChange={handleEmailChange}
           />
           <div id="emailHelp" className="form-text">
@@ -71,7 +66,7 @@ const LoginForm = () => {
             type="password"
             className="form-control"
             id="exampleInputPassword1"
-            value={data.enteredPassword}
+            value={enteredPassword}
             onChange={handlePasswordChange}
           />
         </div>
